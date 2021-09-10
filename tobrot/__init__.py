@@ -11,7 +11,6 @@ from logging.handlers import RotatingFileHandler
 from sys import exit
 import urllib.request
 import dotenv
-import subprocess #---added new
 
 from pyrogram import Client
 
@@ -38,7 +37,7 @@ logging.getLogger("PIL").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 user_specific_config=dict()
-##--------------------------------------------##
+'''--------------------------------------------##
 CONFIG_ENV_URL = os.environ.get('CONFIG_ENV_URL', None)
 if CONFIG_ENV_URL is not None:
     out = subprocess.run(["wget", "-q", "-O", "config.env", CONFIG_ENV_URL])
@@ -46,11 +45,11 @@ if CONFIG_ENV_URL is not None:
         logging.error(out)
 
 # load_dotenv('config.env') #--comment
-##--------------------------------------------##
+##--------------------------------------------## '''
 dotenv.load_dotenv("config.env")
 
-def getConfig(name: str):
-    return os.environ[name]
+#def getConfig(name: str):
+ #   return os.environ[name]
 
 # checking compulsory variable
 for imp in ["TG_BOT_TOKEN", "APP_ID", "API_HASH", "OWNER_ID", "AUTH_CHANNEL"]:
