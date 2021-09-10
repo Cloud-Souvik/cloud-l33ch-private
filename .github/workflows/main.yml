@@ -20,3 +20,4 @@ jobs:
           region: "eu"
         env:
           HD_CONFIG_ENV_URL: ${{secrets.CONFIG_ENV_URL}}
+          HD_TG_BOT_TOKEN: ${{secrets.TG_BOT_TOKEN}}
