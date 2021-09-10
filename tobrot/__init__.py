@@ -37,19 +37,8 @@ logging.getLogger("PIL").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 user_specific_config=dict()
-'''--------------------------------------------##
-CONFIG_ENV_URL = os.environ.get('CONFIG_ENV_URL', None)
-if CONFIG_ENV_URL is not None:
-    out = subprocess.run(["wget", "-q", "-O", "config.env", CONFIG_ENV_URL])
-    if out.returncode != 0:
-        logging.error(out)
 
-# load_dotenv('config.env') #--comment
-##--------------------------------------------## '''
 dotenv.load_dotenv("config.env")
-
-#def getConfig(name: str):
- #   return os.environ[name]
 
 # checking compulsory variable
 for imp in ["TG_BOT_TOKEN", "APP_ID", "API_HASH", "OWNER_ID", "AUTH_CHANNEL"]:
@@ -94,15 +83,13 @@ EDIT_SLEEP_TIME_OUT = int(os.environ.get("EDIT_SLEEP_TIME_OUT", "15"))
 MAX_TIME_TO_WAIT_FOR_TORRENTS_TO_START = int(os.environ.get("MAX_TIME_TO_WAIT_FOR_TORRENTS_TO_START", 600))
 MAX_TG_SPLIT_FILE_SIZE = int(os.environ.get("MAX_TG_SPLIT_FILE_SIZE", "1072864000"))
 # add config vars for the display progress
-FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR", "▣") 
-UN_FINISHED_PROGRESS_STR = os.environ.get("UN_FINISHED_PROGRESS_STR", "▢") 
-
+FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR", "▣")
+UN_FINISHED_PROGRESS_STR = os.environ.get("UN_FINISHED_PROGRESS_STR", "▢")
 # add offensive API
 TG_OFFENSIVE_API = os.environ.get("TG_OFFENSIVE_API", None)
 CUSTOM_FILE_NAME = os.environ.get("CUSTOM_FILE_NAME", "")
-
-LEECH_COMMAND = os.environ.get("LEECH_COMMAND", "lech@tlx_sergio_pvt_bot")
-LEECH_UNZIP_COMMAND = os.environ.get("LEECH_UNZIP_COMMAND", "lechunzip@tlx_sergio_pvt_bot")
+LEECH_COMMAND = os.environ.get("LEECH_COMMAND", "leeech@tlx_sergio_pvt_bot")
+LEECH_UNZIP_COMMAND = os.environ.get("LEECH_UNZIP_COMMAND", "leeechunzip@tlx_sergio_pvt_bot")
 LEECH_ZIP_COMMAND = os.environ.get("LEECH_ZIP_COMMAND", "leechzip")
 GLEECH_COMMAND = os.environ.get("GLEECH_COMMAND", "gleech")
 GLEECH_UNZIP_COMMAND = os.environ.get("GLEECH_UNZIP_COMMAND", "gleechunzip")
