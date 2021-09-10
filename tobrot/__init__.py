@@ -102,9 +102,9 @@ try:
     FINISHED_PROGRESS_STR = getConfig('FINISHED_PROGRESS_STR')
     UN_FINISHED_PROGRESS_STR = getConfig('UN_FINISHED_PROGRESS_STR')
     
-except KeyError as e:
-    LOGGER.error("One or more env variables missing! Exiting now")
-    exit(1)
+except:
+    FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR", "█")
+    UN_FINISHED_PROGRESS_STR = os.environ.get("UN_FINISHED_PROGRESS_STR", "░")
 
 #-------------------------------------#
 # add offensive API
