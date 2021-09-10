@@ -37,7 +37,7 @@ logging.getLogger("PIL").setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger(__name__)
 
-user_specific_config=dict()
+# user_specific_config=dict() #---commented for now
 ##--------------------------------------------##
 CONFIG_FILE_URL = os.environ.get('CONFIG_FILE_URL', None)
 if CONFIG_FILE_URL is not None:
@@ -47,7 +47,10 @@ if CONFIG_FILE_URL is not None:
 
 load_dotenv('config.env')
 ##--------------------------------------------##
-dotenv.load_dotenv("config.env")
+# dotenv.load_dotenv("config.env") #--comment
+
+def getConfig(name: str):
+    return os.environ[name]
 
 # checking compulsory variable
 for imp in ["TG_BOT_TOKEN", "APP_ID", "API_HASH", "OWNER_ID", "AUTH_CHANNEL"]:
@@ -92,8 +95,18 @@ EDIT_SLEEP_TIME_OUT = int(os.environ.get("EDIT_SLEEP_TIME_OUT", "15"))
 MAX_TIME_TO_WAIT_FOR_TORRENTS_TO_START = int(os.environ.get("MAX_TIME_TO_WAIT_FOR_TORRENTS_TO_START", 600))
 MAX_TG_SPLIT_FILE_SIZE = int(os.environ.get("MAX_TG_SPLIT_FILE_SIZE", "1072864000"))
 # add config vars for the display progress
-FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR", "█")
-UN_FINISHED_PROGRESS_STR = os.environ.get("UN_FINISHED_PROGRESS_STR", "░")
+# FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR", "█") #------commented for now
+# UN_FINISHED_PROGRESS_STR = os.environ.get("UN_FINISHED_PROGRESS_STR", "░") #------commented for now
+#-------------------------------------#
+try:
+    FINISHED_PROGRESS_STR = getConfig('FINISHED_PROGRESS_STR')
+    UN_FINISHED_PROGRESS_STR = getConfig('UN_FINISHED_PROGRESS_STR')
+    
+except KeyError as e:
+    LOGGER.error("One or more env variables missing! Exiting now")
+    exit(1)
+
+#-------------------------------------#
 # add offensive API
 TG_OFFENSIVE_API = os.environ.get("TG_OFFENSIVE_API", None)
 CUSTOM_FILE_NAME = os.environ.get("CUSTOM_FILE_NAME", "")
