@@ -45,9 +45,9 @@ if CONFIG_ENV_URL is not None:
     if out.returncode != 0:
         logging.error(out)
 
-load_dotenv('config.env')
+# load_dotenv('config.env') #--comment
 ##--------------------------------------------##
-# dotenv.load_dotenv("config.env") #--comment
+dotenv.load_dotenv("config.env")
 
 def getConfig(name: str):
     return os.environ[name]
