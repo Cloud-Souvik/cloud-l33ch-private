@@ -37,7 +37,7 @@ logging.getLogger("PIL").setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger(__name__)
 
-# user_specific_config=dict() #---commented for now
+user_specific_config=dict()
 ##--------------------------------------------##
 CONFIG_ENV_URL = os.environ.get('CONFIG_ENV_URL', None)
 if CONFIG_ENV_URL is not None:
