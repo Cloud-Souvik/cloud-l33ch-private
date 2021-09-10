@@ -13,6 +13,7 @@ import urllib.request
 import dotenv
 
 from pyrogram import Client
+app = Client("LeechBot", bot_token=TG_BOT_TOKEN, api_id=APP_ID, api_hash=API_HASH, workers=343)
 
 if os.path.exists("TorrentLeech-Gdrive.txt"):
     with open("Torrentleech-Gdrive.txt", "r+") as f_d:
