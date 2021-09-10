@@ -21,7 +21,7 @@ jobs:
         env:
           HD_CONFIG_ENV_URL: ${{secrets.CONFIG_ENV_URL}}
           HD_APP_ID: ${{secrets.APP_ID}}
-          HD_API_HASH: ${{secrets.API_HASH}} 
+          HD_API_HASH: ${{secrets.API_HASH}}
           HD_TG_BOT_TOKEN: ${{secrets.TG_BOT_TOKEN}}
           HD_AUTH_CHANNEL: ${{secrets.AUTH_CHANNEL}}
           HD_OWNER_ID: ${{secrets.OWNER_ID}}
