@@ -39,9 +39,9 @@ LOGGER = logging.getLogger(__name__)
 
 # user_specific_config=dict() #---commented for now
 ##--------------------------------------------##
-CONFIG_FILE_URL = os.environ.get('CONFIG_FILE_URL', None)
-if CONFIG_FILE_URL is not None:
-    out = subprocess.run(["wget", "-q", "-O", "config.env", CONFIG_FILE_URL])
+CONFIG_ENV_URL = os.environ.get('CONFIG_ENV_URL', None)
+if CONFIG_ENV_URL is not None:
+    out = subprocess.run(["wget", "-q", "-O", "config.env", CONFIG_ENV_URL])
     if out.returncode != 0:
         logging.error(out)
 
